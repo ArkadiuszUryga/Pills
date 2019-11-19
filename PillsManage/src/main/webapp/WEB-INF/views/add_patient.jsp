@@ -39,8 +39,8 @@
 </script>
 </head>
 <body>
-<c:set var="patients" scope="session" value="${patients}" />
-<c:if test="${patients.doubledName == 1}">
+<c:set var="patientNameDTO" scope="session" value="${patientNameDTO}" />
+<c:if test="${patientNameDTO.doubledName == 1}">
 <div class="modal-dialog">
 						<div class="modal-content">
 							<div class="modal-body">
@@ -58,11 +58,14 @@
 <div class="col-xs-12" style="height: 50px;"></div>
 	<div class="row align-items-end.ml-1">
 		 <div class="col-sm">
-		 	<form:form method="post" modelAttribute="patients" class="form-horizontal" role="form">
+		 	<form:form method="post" modelAttribute="patientNameDTO" class="form-horizontal" role="form">
 		 	<div class="form-group">
 		 	
 		 	<form:input path="name" class="form-control" placeholder="Nazwa pacjenta" required="true" />
-		 	 
+		 	<form:errors path="name" class="form-control is-invalid" placeholder="Nazwa pacjenta" required="true" />
+		 	 <div class="invalid-feedback">
+          		Nazwa pacjenta min. 3 znaki
+        	</div>
 			 
 			
 		 </div>
